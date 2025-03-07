@@ -7,11 +7,11 @@ import (
 )
 
 func Migrate(db *gorm.DB) error {
-	
+
 	if err := db.AutoMigrate(
 		entity.Article{},
 		entity.User{},
-		); err != nil {
+	); err != nil {
 		return err
 	}
 

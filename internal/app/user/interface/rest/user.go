@@ -42,7 +42,7 @@ func (h *UserHandler) RegisterUser(ctx *fiber.Ctx) error {
 		return err
 	}
 
-	return ctx.JSON(http.StatusOK)
+	return ctx.JSON(http.StatusCreated)
 }
 
 func (h *UserHandler) LoginUser(ctx *fiber.Ctx) error {

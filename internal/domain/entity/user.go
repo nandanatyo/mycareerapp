@@ -12,8 +12,8 @@ type User struct {
 	Email                     string    `json:"email" gorm:"type:varchar(255);unique;not null"`
 	Password                  string    `json:"password" gorm:"type:varchar(255);not null"`
 	PhotoProfile              string    `json:"photo_profile" gorm:"type:text"`
-	Gender                    string    `json:"gender" gorm:"type:text;not null"`
-	Birthday                  string    `json:"birthday" gorm:"type:text;not null"`
+	Gender                    Gender    `json:"gender" gorm:"type:text;not null"`
+	Birthday                  time.Time    `json:"birthday" gorm:"type:text;not null"`
 	EducationalLevel          string    `json:"educational_level" gorm:"type:text;not null"`
 	Institution               string    `json:"institution" gorm:"type:text;not null"`
 	Departmen                 string    `json:"departmen" gorm:"type:text;not null"`
@@ -31,5 +31,12 @@ type User struct {
 	WorkRoles                 string    `json:"work_roles" gorm:"type:text"`
 	CV                        string    `json:"cv" gorm:"type:text"`
 	IsAdmin                   bool      `json:"is_admin" gorm:"type:boolean"`
-	CreatedAt                 time.Time    `json:"created_at" gorm:"type:timestamp;autoCreateTime"`
+	CreatedAt                 time.Time `json:"created_at" gorm:"type:timestamp;autoCreateTime"`
 }
+
+type Gender string
+
+const (
+	Male   Gender = "male"
+	Female Gender = "female"
+)
