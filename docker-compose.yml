@@ -1,0 +1,22 @@
+services:
+  mycareerapp-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mycareerapp-api
+    ports:
+      - "3003:${APP_PORT}"
+    env_file:
+      - .env
+    networks:
+      - app_network
+      - maria_network
+
+networks:
+  app_network:
+    driver: bridge
+  maria_network:
+    external: true
+
+volumes:
+  mariadb_data:
