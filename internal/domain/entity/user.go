@@ -13,7 +13,7 @@ type User struct {
 	Password                  string    `json:"password" gorm:"type:varchar(255);not null"`
 	PhotoProfile              string    `json:"photo_profile" gorm:"type:text"`
 	Gender                    Gender    `json:"gender" gorm:"type:text;not null"`
-	Birthday                  time.Time    `json:"birthday" gorm:"type:text;not null"`
+	Birthday                  time.Time `json:"birthday" gorm:"type:date;not null"`
 	EducationalLevel          string    `json:"educational_level" gorm:"type:text;not null"`
 	Institution               string    `json:"institution" gorm:"type:text;not null"`
 	Departmen                 string    `json:"departmen" gorm:"type:text;not null"`
